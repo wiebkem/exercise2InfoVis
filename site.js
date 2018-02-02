@@ -24,7 +24,6 @@ function drawDimplePlot2(data) {
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer2", width, height);
     var dimpleChart = new dimple.chart(dimpleSvg, data);
-<<<<<<< HEAD
     dimpleChart.setMargins(50, 40, 120, 50);
     var x = dimpleChart.addCategoryAxis("x", "Date");
     var y = dimpleChart.addMeasureAxis("y", "Average");

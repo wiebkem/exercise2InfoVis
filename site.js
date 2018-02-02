@@ -24,14 +24,14 @@ function drawDimplePlot2(data) {
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer2", width, height);
     var dimpleChart = new dimple.chart(dimpleSvg, data);
-    dimpleChart.setMargins(50, 40, 120, 50);
+    //dimpleChart.setMargins(0, 20, 0, 50);
+    //var x = dimpleChart.addTimeAxis("x", "Date", "%d-%m-%Y", "%m-%y");
     var x = dimpleChart.addCategoryAxis("x", "Date");
     var y = dimpleChart.addMeasureAxis("y", "Average");
-    //y.overrideMin = 300;
-    //y.overrideMax = 500;
+    y.overrideMin = 360;
+    y.overrideMax = 410;
     dimpleChart.addSeries("Trend", dimple.plot.line);
-    dimpleChart.addSeries("Interpolated", dimple.plot.bubble);
-    dimpleChart.addLegend("2%", 10, "96%", 30, "right");
+    dimpleChart.addSeries("Interpolated", dimple.plot.line);
     dimpleChart.draw();
 }
 

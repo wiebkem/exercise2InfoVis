@@ -1,4 +1,3 @@
-var dimpleChart;
 
 function drawDimplePlot(data) {
     var height = 300, width = 600;
@@ -6,7 +5,7 @@ function drawDimplePlot(data) {
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer", width, height);
 
-    dimpleChart = new dimple.chart(dimpleSvg, data);
+    var dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
     var x = dimpleChart.addCategoryAxis("x", "Occupation");
     //x.overrideMin = 50;
@@ -59,6 +58,7 @@ function filterData() {
     dimpleChart.data = dimple.filterData(loadedData,"Date",["2", "4"]);
     dimpleChart.draw(0,false);
 }
+
 
 var data1_csv = "Gender_Pay_Gap.csv";
 var data2_csv = "CO2-trend.csv";

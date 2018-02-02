@@ -38,7 +38,7 @@ function prepareGenderGap(data)
 {
     data.forEach(function (d) {
         d["Occupation"] = d["occupation"]; // Makes sure this is treated as a number instead of as text
-        d["Gender Pay Gap"] = +d["gender pay gap"]; // Makes sure this is treated as a number instead of as text
+        d["Gender Pay Gap"] = +(d["gender pay gap"].replace(/%/g, "")); // Makes sure this is treated as a number instead of as text
     });  
 }
 

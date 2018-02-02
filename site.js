@@ -1,3 +1,5 @@
+var dimpleChart;
+var dimpleChart2;
 
 function drawDimplePlot(data) {
     var height = 300, width = 600;
@@ -5,15 +7,11 @@ function drawDimplePlot(data) {
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer", width, height);
 
-    var dimpleChart = new dimple.chart(dimpleSvg, data);
+    dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
     var x = dimpleChart.addCategoryAxis("x", "Occupation");
-    //x.overrideMin = 50;
     var y = dimpleChart.addMeasureAxis("y", "Gender Pay Gap");
-    //y.overrideMax = 13;
-    //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
     dimpleChart.addSeries(["Occupation"], dimple.plot.bar);
-    //dimpleChart.addLegend("2%", 10, "96%", 30, "right");
     dimpleChart.draw();
   
 }
@@ -23,16 +21,15 @@ function drawDimplePlot2(data) {
 
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer2", width, height);
-    var dimpleChart = new dimple.chart(dimpleSvg, data);
-    //dimpleChart.setMargins(0, 20, 0, 50);
+    dimpleChart2 = new dimple.chart(dimpleSvg, data);
     //var x = dimpleChart.addTimeAxis("x", "Date", "%d-%m-%Y", "%m-%y");
-    var x = dimpleChart.addCategoryAxis("x", "Date");
-    var y = dimpleChart.addMeasureAxis("y", "Average");
+    var x = dimpleChart2.addCategoryAxis("x", "Date");
+    var y = dimpleChart2.addMeasureAxis("y", "Average");
     y.overrideMin = 360;
     y.overrideMax = 410;
-    dimpleChart.addSeries("Trend", dimple.plot.line);
-    dimpleChart.addSeries("Interpolated", dimple.plot.line);
-    dimpleChart.draw();
+    dimpleChart2.addSeries("Trend", dimple.plot.line);
+    dimpleChart2.addSeries("Interpolated", dimple.plot.line);
+    dimpleChart2.draw();
 }
 
 function prepareGenderGap(data)
@@ -55,8 +52,8 @@ function dimpleZoomReset() {
 }
 
 function filterData() {
-    dimpleChart.data = dimple.filterData(loadedData,"Date",["2", "4"]);
-    dimpleChart.draw(0,false);
+    dimpleChart2.data = dimple.filterData(data2,"Date",["2", "4"]);
+    dimpleChart2.draw(0,false);
 }
 
 

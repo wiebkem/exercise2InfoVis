@@ -1,3 +1,4 @@
+var dimpleChart;
 
 function drawDimplePlot(data) {
     var height = 300, width = 600;
@@ -5,7 +6,7 @@ function drawDimplePlot(data) {
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer", width, height);
 
-    var dimpleChart = new dimple.chart(dimpleSvg, data);
+    dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
     var x = dimpleChart.addCategoryAxis("x", "Occupation");
     //x.overrideMin = 50;
@@ -42,6 +43,16 @@ function prepareGenderGap(data)
         d["Gender Pay Gap"] = -(d["gender pay gap"].replace(/%/g, "")); // Makes sure this is treated as a number instead of as text
         d["Gender Pay Gap"] = 100-d['Gender Pay Gap'];
     });  
+}
+
+function dimpleZoom() {
+    dimpleChart.axes[1].overrideMin = 55;
+    dimpleChart.draw(1000);
+}
+
+function dimpleZoomReset() {
+    dimpleChart.axes[1].overrideMin = 0;
+    dimpleChart.draw(1000);
 }
 
 var data1_csv = "Gender_Pay_Gap.csv";

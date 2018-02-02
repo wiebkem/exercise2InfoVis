@@ -26,7 +26,7 @@ function drawDimplePlot2(data) {
     var dimpleSvg = dimple.newSvg("#dimpleContainer2", width, height);
 //debugger;
     var dimpleChart = new dimple.chart(dimpleSvg, data);
-    dimpleChart.setMargins(50, 40, 20, 50);
+    dimpleChart.setMargins(50, 40, 120, 50);
     var x = dimpleChart.addCategoryAxis("x", "Date");
     var y = dimpleChart.addMeasureAxis("y", "Average");
     var interpolatedLine = dimpleChart.addSeries("Interpolated", dimple.plot.line);
@@ -39,6 +39,7 @@ function prepareGenderGap(data)
     data.forEach(function (d) {
         d["Occupation"] = d["occupation"]; // Makes sure this is treated as a number instead of as text
         d["Gender Pay Gap"] = -(d["gender pay gap"].replace(/%/g, "")); // Makes sure this is treated as a number instead of as text
+        d["Gender Pay Gap"] = 100-d['Gender Pay Gap'];
     });  
 }
 

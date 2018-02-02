@@ -52,7 +52,9 @@ function dimpleZoomReset() {
 }
 
 function filterData() {
-    dimpleChart2.data = dimple.filterData(data2,"Date",["2", "4"]);
+    var half_length = Math.ceil(data2.length / 2);
+    var filteredData = data2.splice(0,half_length);
+    dimpleChart2.data = filteredData;
     dimpleChart2.draw(0,false);
 }
 

@@ -13,7 +13,7 @@ function drawDimplePlot(data) {
     //y.overrideMax = 13;
     //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
     dimpleChart.addSeries(["Occupation"], dimple.plot.bar);
-    dimpleChart.addLegend("2%", 10, "96%", 30, "right");
+    //dimpleChart.addLegend("2%", 10, "96%", 30, "right");
     dimpleChart.draw();
   
 }

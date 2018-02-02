@@ -42,7 +42,7 @@ function prepareChallengerData(data)
     });  
 }
 
-var data1_csv = "https://dl.dropbox.com/s/g5ldwtpjdaq1c0p/challenger_damaged.csv?dl=0";
+var data1_csv = "Gender_Pay_Gap.csv";
 var data2_csv = "CO2-trend.csv";
 
 d3.csv(data1_csv, function (data) {

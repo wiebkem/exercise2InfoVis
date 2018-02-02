@@ -19,19 +19,21 @@ function drawDimplePlot(data) {
 }
 
 function drawDimplePlot2(data) {
-
     var height = 300, width = 600;
 
     //Create SVG
     var dimpleSvg = dimple.newSvg("#dimpleContainer2", width, height);
-//debugger;
     var dimpleChart = new dimple.chart(dimpleSvg, data);
+<<<<<<< HEAD
     dimpleChart.setMargins(50, 40, 120, 50);
     var x = dimpleChart.addCategoryAxis("x", "Date");
     var y = dimpleChart.addMeasureAxis("y", "Average");
-    var interpolatedLine = dimpleChart.addSeries("Interpolated", dimple.plot.line);
-    var trendLine = dimpleChart.addSeries("Trend", dimple.plot.line);
-    dimpleChart.draw();  
+    //y.overrideMin = 300;
+    //y.overrideMax = 500;
+    dimpleChart.addSeries("Trend", dimple.plot.line);
+    dimpleChart.addSeries("Interpolated", dimple.plot.bubble);
+    dimpleChart.addLegend("2%", 10, "96%", 30, "right");
+    dimpleChart.draw();
 }
 
 function prepareGenderGap(data)
@@ -51,11 +53,8 @@ d3.csv(data1_csv, function (data) {
     drawDimplePlot(data);
 });
 
-
 d3.text(data2_csv, function (text) {
-    var dsv = d3.dsvFormat(";");
-    var data = dsv.parse(text);
-    drawDimplePlot2(data);
+    var dsv = d3.dsvFormat(",");
+    data2 = dsv.parse(text);
+    drawDimplePlot2(data2);
 });
-
-

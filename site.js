@@ -12,7 +12,7 @@ function drawDimplePlot(data) {
     var y = dimpleChart.addMeasureAxis("y", "Gender Pay Gap");
     //y.overrideMax = 13;
     //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
-    //dimpleChart.addSeries(["Flight", "Damage index"], dimple.plot.bubble);
+    dimpleChart.addSeries(["gender pay gap"], dimple.plot.bubble);
     dimpleChart.addLegend("2%", 10, "96%", 30, "right");
     dimpleChart.draw();
   

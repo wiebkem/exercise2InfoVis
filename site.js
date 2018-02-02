@@ -55,6 +55,11 @@ function dimpleZoomReset() {
     dimpleChart.draw(1000);
 }
 
+function filterData() {
+    dimpleChart.data = dimple.filterData(loadedData,"Date",["2", "4"]);
+    dimpleChart.draw(0,false);
+}
+
 var data1_csv = "Gender_Pay_Gap.csv";
 var data2_csv = "CO2-trend.csv";
 

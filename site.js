@@ -9,10 +9,10 @@ function drawDimplePlot(data) {
     dimpleChart.setMargins(50, 40, 20, 50);
     var x = dimpleChart.addMeasureAxis("x", "Occupation");
     //x.overrideMin = 50;
-    var y = dimpleChart.addMeasureAxis("y", "Gender Pay Gap");
+    var y = dimpleChart.addCategoryAxis("y", "Gender Pay Gap");
     //y.overrideMax = 13;
     //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
-    dimpleChart.addSeries(["gender pay gap"], dimple.plot.bubble);
+    dimpleChart.addSeries(["Occupation"], dimple.plot.bar);
     dimpleChart.addLegend("2%", 10, "96%", 30, "right");
     dimpleChart.draw();
   

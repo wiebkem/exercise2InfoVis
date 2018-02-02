@@ -27,9 +27,10 @@ function drawDimplePlot2(data) {
 //debugger;
     var dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
-    var x = dimpleChart.addCategoryAxis("x", "Countries");
-    var y = dimpleChart.addMeasureAxis("y", "Cheese (kcal/day)");
-    var barSeries = dimpleChart.addSeries("Countries", dimple.plot.bar);
+    var x = dimpleChart.addCategoryAxis("x", "Date");
+    var y = dimpleChart.addMeasureAxis("y", "Average");
+    var interpolatedLine = dimpleChart.addSeries("Interpolated", dimple.plot.line);
+    var trendLine = dimpleChart.addSeries("Trend", dimple.plot.line);
     dimpleChart.draw();  
 }
 
@@ -42,7 +43,7 @@ function prepareChallengerData(data)
 }
 
 var data1_csv = "https://dl.dropbox.com/s/g5ldwtpjdaq1c0p/challenger_damaged.csv?dl=0";
-var data2_csv = "https://dl.dropbox.com/s/3s0fqi3mg3ifn69/Countries.csv?dl=0";
+var data2_csv = "CO2-trend.csv";
 
 d3.csv(data1_csv, function (data) {
     prepareChallengerData(data);

@@ -1,0 +1,30 @@
+body {
+  margin: 40px;
+  background-color: white;
+}
+
+#poster {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr [last];
+}
+
+.box {
+  background-color: #E1E1E1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+  grid-column: 1/ last;
+}
+
+.footer {
+  text-align: center;
+  grid-column: 1/ last;
+}
+
+svg {
+  width: 100%;
+}

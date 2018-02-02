@@ -7,9 +7,9 @@ function drawDimplePlot(data) {
 
     var dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
-    var x = dimpleChart.addMeasureAxis("x", "occupation");
+    var x = dimpleChart.addMeasureAxis("x", "Occupation");
     x.overrideMin = 50;
-    var y = dimpleChart.addMeasureAxis("y", "gender pay gap");
+    var y = dimpleChart.addMeasureAxis("y", "Gender Pay Gap");
     y.overrideMax = 13;
     //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
     //dimpleChart.addSeries(["Flight", "Damage index"], dimple.plot.bubble);

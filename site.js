@@ -7,12 +7,12 @@ function drawDimplePlot(data) {
 
     var dimpleChart = new dimple.chart(dimpleSvg, data);
     dimpleChart.setMargins(50, 40, 20, 50);
-    var x = dimpleChart.addMeasureAxis("x", "Temperature F");
+    var x = dimpleChart.addMeasureAxis("x", "occupation");
     x.overrideMin = 50;
-    var y = dimpleChart.addMeasureAxis("y", "Damage index");
+    var y = dimpleChart.addMeasureAxis("y", "gender pay gap");
     y.overrideMax = 13;
-    var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
-    dimpleChart.addSeries(["Flight", "Damage index"], dimple.plot.bubble);
+    //var lineSeries = dimpleChart.addSeries("Flight", dimple.plot.line);
+    //dimpleChart.addSeries(["Flight", "Damage index"], dimple.plot.bubble);
     dimpleChart.addLegend("2%", 10, "96%", 30, "right");
     dimpleChart.draw();
   
@@ -34,11 +34,11 @@ function drawDimplePlot2(data) {
     dimpleChart.draw();  
 }
 
-function prepareChallengerData(data)
+function prepareGenderGap(data)
 {
     data.forEach(function (d) {
-        d["Temperature F"] = +d["Temperature F"]; // Makes sure this is treated as a number instead of as text
-        d["Damage index"] = +d["Damage index"]; // Makes sure this is treated as a number instead of as text
+        d["Occupation"] = +d["occupation"]; // Makes sure this is treated as a number instead of as text
+        d["Gender Pay Gap"] = +d["gender pay gap"]; // Makes sure this is treated as a number instead of as text
     });  
 }
 
@@ -46,7 +46,7 @@ var data1_csv = "Gender_Pay_Gap.csv";
 var data2_csv = "CO2-trend.csv";
 
 d3.csv(data1_csv, function (data) {
-    prepareChallengerData(data);
+    prepareGenderGap(data);
     drawDimplePlot(data);
 });
 
